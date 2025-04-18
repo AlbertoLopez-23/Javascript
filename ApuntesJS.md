@@ -72,6 +72,83 @@ El CSS sirve para dar estilo, se suele hacer a través de etiqueetas
 
 <etiquetas style= "Propiedad de estilo: valor">
 
-<etiquetas style= "color:green;
-                    background: yellow
-                    font-size:20px">
+<p style="color: rgb(0, 0, 0);
+            background-color: rgb(42, 226, 233);
+             font-family: 'Times New Roman', Times, serif;
+             font-size: 1em;
+             margin: 20px;
+             border:3px;
+             border-color: blue;
+             padding:10px">
+
+Así definiriamos un estilo en parrafo, esto no se suele hacer así sino que se suele crear un archivo con los estilos separados, Si te fijas en font-family hay muchas familias, esto es debido a que el usuario de la página podría no tner disponible alguna de ellas, entonces el código indica que si no tiene Times New Roman salte a Times, y si no tiene times, salte a Serif.
+
+Font-size 1em es el tamaño normal, 2em es dos veces e, tamaño normal, 3em...
+
+El borde define un cuadrado, separado del texto por el padding, al final definen varios rectangulos concentricos, en este orden margin > border > padding
+
+Para definir el estilo se puede definir en cada parrafo (lo peor) , defini en el head que se vería así:
+
+<style>
+    h1{
+        font-family: 'cpurier New', Courier, monospace;
+        color: red
+    }
+    p{
+        color:verde
+    }
+</style>
+
+Podríamos volver a definir en un parrafo específico un nuevo estilo, las ordenese más específicas sobrescriben a las menos específicas
+
+Pero el **mejor método** es este, se crea un ahoja de estilo y se le referencia de esta forma
+
+<link rel="stylesheet" href="misestilos.css"> 
+
+y en misestilos.css debería haber algo así (misestiloscss es un nombre genérico apra la hoja de estilos)
+
+h1{
+    font-family: 'cpurier New', Courier, monospace;
+    color: red
+}
+p{
+    color:verde
+}
+
+Se puede aplicar **clases** a los parrafos, para asi auqneu los parrafos compartan la etiqeuta p o h1, lleven estilos diferentes, en la hoja de estios se define como
+
+.nombreclase{
+    color:rojo
+}
+
+Y en le parrafo se definiria como <p class="nombreclase"> y en el orden de especifidad están por delante de el estilo de p, rollo lo que tu definas sobr elos parrafos de tipo p, se sobrescribe con las clases
+
+Las etiquetas <div> sirven oara agrupar elementos, y se puede definir una clase o estilo para todo ese grupo y <span> hace lo contrario
+ 
+<div class ="nombreclase">
+    <p>a+b= <span class="otraclase"> c </span> </p>
+    <p>b</p>
+    <p>c</p>
+</div>
+
+Los grupos de selectores pueden ser de tipo (h1{estilo}) de clase (.nombreclase{estilo}) y ID (#nombreID {estilo})- los de Id solo pueden aplicarse a un elemento por sitio web
+
+Los grupos de elemento por atributo funcionan así
+
+a[href*= ".edu"]{estilo} 
+
+Y sirevn para seleccionar en este caso a todos los elementos que contengan .edu
+
+Los elementos de pseudo-clases y pseudo-elementos, un jemplo sería
+
+p:hover{estilo}
+
+Y en este caso se activria cuando pase el raton por encima de el
+
+p::firstline es un pseudo elemnto y afectaría solo al primer elemento de cada parrafo
+
+Todas estas se definirian en la hoja de estilos.
+
+Otros elementos que no hemos visto son las listas ordenadas o desordenadas (HSS)
+
+Los **combinadores** los hay de varios tipos, descendientes (div), hijos directos (ol>li, se nombramn así y solo afectaría a li, si li tiene hijos no les afecta), hermanos adjacentes (h1+h2, solo afectaran a los h2 que tiene antes un h1), ( hermanos generales (h1~h2)
