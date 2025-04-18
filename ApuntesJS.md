@@ -1,6 +1,6 @@
 # Apuntes sobre Javascript
 
-## Dia 1 
+## Dia 1 - HTML
 
 URL = Uniform Resource Locator y al activar una url como:
 
@@ -65,3 +65,13 @@ Se puede definir como poner en el centro, se ponen con la etiqueta <img>
 width puede ir en píxeles aunque es mejor ponerla en tamaño porporcional (600 ó 100%)
 alt sirve para aparecer en los bsucadores web y esas cosas y que paarezca como texto alternativo
 hspace crea un pequeño margen de ese numero de píxeles
+
+## Dia 2 - CSS
+
+El CSS sirve para dar estilo, se suele hacer a través de etiqueetas
+
+<etiquetas style= "Propiedad de estilo: valor">
+
+<etiquetas style= "color:green;
+                    background: yellow
+                    font-size:20px">
